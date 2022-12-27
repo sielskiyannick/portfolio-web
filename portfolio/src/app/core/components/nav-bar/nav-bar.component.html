@@ -1,5 +1,9 @@
+<div>
+  <a [routerLink]=routePaths.home routerLinkActive="active">Yannick Sielski</a>
+</div>
+
 <ng-container *ngFor="let route of routes">
   <div>
-    <a [routerLink]="route.routePath" routerLinkActive="active">{{ route.routeLabel }}</a>
+    <a [routerLink]="route.routePath" routerLinkActive="active">_ {{ route.routeLabel }}</a>
   </div>
 </ng-container>

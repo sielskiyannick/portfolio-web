@@ -11,7 +11,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public routes: RouteDef[] = [
-    new RouteDef(Routes.home,'home'),
     new RouteDef(Routes.about,'about'),
     new RouteDef(Routes.work,'work')
   ];
