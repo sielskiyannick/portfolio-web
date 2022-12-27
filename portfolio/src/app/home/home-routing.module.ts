@@ -1,4 +1,4 @@
-import { HomeWrapperComponent } from './components/home-wrapper/home-wrapper.component';
+import { HomeWrapperComponent } from 'src/app/home/components/home-wrapper/home-wrapper.component';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 

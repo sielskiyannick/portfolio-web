@@ -1,4 +1,4 @@
-import { WorkWrapperComponent } from './components/work-wrapper/work-wrapper.component';
+import { WorkWrapperComponent } from 'src/app/work/components/work-wrapper/work-wrapper.component';
 
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";

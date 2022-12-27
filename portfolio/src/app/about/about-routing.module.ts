@@ -1,4 +1,4 @@
-import { AboutWrapperComponent } from './components/about-wrapper/about-wrapper.component';
+import { AboutWrapperComponent } from 'src/app/about/components/about-wrapper/about-wrapper.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from "@angular/core";

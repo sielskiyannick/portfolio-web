@@ -1,5 +1,5 @@
-import { HomeRoutingModule } from './home-routing.module';
-import { HomeWrapperComponent } from './components/home-wrapper/home-wrapper.component';
+import { HomeRoutingModule } from 'src/app/home/home-routing.module';
+import { HomeWrapperComponent } from 'src/app/home/components/home-wrapper/home-wrapper.component';
 
 import { NgModule } from "@angular/core";
 

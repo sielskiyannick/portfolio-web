@@ -1,5 +1,5 @@
-import { WorkRoutingModule } from './work-routing.module';
-import { WorkWrapperComponent } from './components/work-wrapper/work-wrapper.component';
+import { WorkRoutingModule } from 'src/app/work/work-routing.module';
+import { WorkWrapperComponent } from 'src/app/work/components/work-wrapper/work-wrapper.component';
 import { NgModule } from "@angular/core";
 
 @NgModule({
