@@ -1,2 +1,2 @@
-# work-portfolio
+# portfolio-web
 Sample portfolio application
