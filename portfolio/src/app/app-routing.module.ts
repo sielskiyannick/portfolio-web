@@ -1,7 +1,6 @@
 import { GenericErrorComponent } from './core/components/generic-error/generic-error.component';
-import { HomeModule } from './home/home.module';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { Routes as RoutePath } from './core/enums/routes.enum';
 
 const routes: Routes = [
@@ -28,7 +27,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  // imports: [RouterModule.forRoot(routes)],
+  // exports: [RouterModule]
 })
 export class AppRoutingModule { }
