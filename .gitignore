@@ -60,3 +60,6 @@ aio/content/examples/.DS_Store
 
 # angular cache
 .angular
+
+# local development files
+*.local.ts

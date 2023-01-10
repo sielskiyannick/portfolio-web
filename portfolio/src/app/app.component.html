@@ -1,3 +1,7 @@
 <app-nav-bar [routes]="routes"></app-nav-bar>
 
+<ng-container *ngIf="errorOccurred">
+  <p>Error!</p>
+</ng-container>
+
 <router-outlet></router-outlet>

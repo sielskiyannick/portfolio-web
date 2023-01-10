@@ -35,6 +35,20 @@
             "scripts": []
           },
           "configurations": {
+            "local": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.local.ts"
+                }
+              ]
+            },
             "production": {
               "budgets": [
                 {
@@ -69,6 +83,10 @@
             },
             "development": {
               "browserTarget": "portfolio:build:development"
+            },
+            "local": {
+              "browserTarget": "portfolio:build:local",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
