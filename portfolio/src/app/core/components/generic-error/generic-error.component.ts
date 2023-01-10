@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-generic-error',
+  selector: 'pf-generic-error',
   templateUrl: 'generic-error.component.html',
   styleUrls: []
 })

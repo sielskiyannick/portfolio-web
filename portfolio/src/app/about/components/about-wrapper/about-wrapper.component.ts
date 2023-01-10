@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-about-wrapper',
+  selector: 'pf-about-wrapper',
   templateUrl: 'about-wrapper.component.html',
   styleUrls: []
 })
