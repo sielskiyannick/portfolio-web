@@ -20,8 +20,6 @@ export class AppComponent implements OnInit {
     new RouteDef(Routes.work,'work')
   ];
 
-  // private businessSettings: IBusinessSettings = null;
-
   public errorOccurred: boolean = false;
 
   constructor(private readonly businessSettingsService: BusinessSettingsService) {}
@@ -37,7 +35,6 @@ export class AppComponent implements OnInit {
     )
     .subscribe({
       next: (businessSettings: IBusinessSettings) => {
-        // this.businessSettings = businessSettings;
         console.log('Business settings fetched!');
       }
     });
