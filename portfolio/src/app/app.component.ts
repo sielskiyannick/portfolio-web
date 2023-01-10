@@ -1,4 +1,4 @@
-import { BusinessSettingsService } from './core/services/business-settings.service';
+import { BusinessSettingsService } from 'src/app/core/services/business-settings.service';
 import { IBusinessSettings } from 'src/app/core/models';
 import { RouteDef } from 'src/app/core/models/route-def.model';
 
