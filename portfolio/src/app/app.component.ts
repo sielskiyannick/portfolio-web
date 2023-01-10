@@ -1,5 +1,5 @@
 import { BusinessSettingsService } from './core/services/business-settings.service';
-import { BusinessSettings } from 'src/app/core/models/business-settings/business-settings.model';
+import { IBusinessSettings } from 'src/app/core/models';
 import { RouteDef } from 'src/app/core/models/route-def.model';
 
 import { Routes } from 'src/app/core/enums';
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     new RouteDef(Routes.work,'work')
   ];
 
-  private businessSettings: BusinessSettings = new BusinessSettings();
+  // private businessSettings: IBusinessSettings = null;
 
   public errorOccurred: boolean = false;
 
@@ -29,15 +29,16 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.businessSettingsService.getBusinessSettings()
     .pipe(
-      tap((result: BusinessSettings) => console.log(result)),
+      tap((result: IBusinessSettings) => console.log(result)),
       catchError((error: HttpErrorResponse) => {
         this.errorOccurred = true;
         return EMPTY;
       })
     )
     .subscribe({
-      next: (businessSettings: BusinessSettings) => {
-        this.businessSettings = businessSettings;
+      next: (businessSettings: IBusinessSettings) => {
+        // this.businessSettings = businessSettings;
+        console.log('Business settings fetched!');
       }
     });
   }
