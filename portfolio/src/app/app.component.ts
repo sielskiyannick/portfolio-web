@@ -1,12 +1,13 @@
-import { BusinessSettingsService } from 'src/app/core/services/business-settings.service';
-import { IBusinessSettings } from 'src/app/core/models';
 import { RouteDef } from 'src/app/core/models/route-def.model';
-
 import { Routes } from 'src/app/core/enums';
+import { businessSettingsSelectors, IBusinessSettingsState } from 'src/app/core/state';
 
 import { Component, OnInit } from '@angular/core';
-import { catchError, EMPTY, tap } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+
+import { Store } from '@ngrx/store';
+
+import { catchError, EMPTY, tap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -22,20 +23,23 @@ export class AppComponent implements OnInit {
 
   public errorOccurred: boolean = false;
 
-  constructor(private readonly businessSettingsService: BusinessSettingsService) {}
+  constructor(
+    private readonly businessSettingsStore: Store<IBusinessSettingsState>,
+  ) {}
 
   ngOnInit(): void {
-    this.businessSettingsService.getBusinessSettings()
+    this.businessSettingsStore.select(businessSettingsSelectors.getBusinessSettings)
     .pipe(
-      tap((result: IBusinessSettings) => console.log(result)),
+      tap((result: IBusinessSettingsState) => console.log(result.businessSettings)),
       catchError((error: HttpErrorResponse) => {
         this.errorOccurred = true;
         return EMPTY;
       })
     )
     .subscribe({
-      next: (businessSettings: IBusinessSettings) => {
-        console.log('Business settings fetched!');
+      next: (businessSettingsState: IBusinessSettingsState) => {
+        console.log('Business settings fetched!:');
+        console.log(businessSettingsState);
       }
     });
   }

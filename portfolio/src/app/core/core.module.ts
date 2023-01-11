@@ -1,18 +1,23 @@
 import { GenericErrorComponent } from 'src/app/core/components/generic-error/generic-error.component';
 import { NavBarComponent } from 'src/app/core/components/nav-bar/nav-bar.component';
 import { BusinessSettingsService } from 'src/app/core/services/business-settings.service';
+import { EnsureModuleLoadedOnceGuard } from 'src/app/core/classes';
+import { coreReducers } from 'src/app/core/state';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, Optional, SkipSelf } from "@angular/core";
 import { RouterModule } from '@angular/router';
-import { EnsureModuleLoadedOnceGuard } from './classes/ensure-module-loaded-once-guard.class';
+
+import { StoreModule } from '@ngrx/store';
+
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    StoreModule.forRoot(coreReducers)
   ],
   declarations: [
     NavBarComponent,
