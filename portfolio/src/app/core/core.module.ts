@@ -4,8 +4,9 @@ import { BusinessSettingsService } from 'src/app/core/services/business-settings
 
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from "@angular/core";
+import { NgModule, Optional, SkipSelf } from "@angular/core";
 import { RouterModule } from '@angular/router';
+import { EnsureModuleLoadedOnceGuard } from './classes/ensure-module-loaded-once-guard.class';
 
 @NgModule({
   imports: [
@@ -25,4 +26,8 @@ import { RouterModule } from '@angular/router';
     GenericErrorComponent
   ]
 })
-export class CoreModule { }
+export class CoreModule extends EnsureModuleLoadedOnceGuard {
+  constructor( @Optional() @SkipSelf() parentModule: CoreModule) {
+    super(parentModule);
+  }
+}
