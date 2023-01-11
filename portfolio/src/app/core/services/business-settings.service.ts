@@ -1,5 +1,5 @@
 import { environment } from 'src/environments/environment'
-import { IBusinessSettings } from 'src/app/core/models';
+import { IBusinessSettings } from 'src/app/core/interfaces';
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';

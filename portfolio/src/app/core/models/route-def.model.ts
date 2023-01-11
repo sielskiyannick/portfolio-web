@@ -8,10 +8,10 @@ export class RouteDef {
     this._routeLabel = routeLabel;
   }
 
-  public get routePath(): string {
+  get routePath(): string {
     return this._routePath;
   }
-  public get routeLabel(): string {
+  get routeLabel(): string {
     return this._routeLabel;
   }
 

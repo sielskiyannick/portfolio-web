@@ -1,7 +1,15 @@
-<pf-nav-bar [routes]="routes"></pf-nav-bar>
-
+<!-- Error handler -->
 <ng-container *ngIf="errorOccurred">
   <p>Error!</p>
 </ng-container>
 
-<router-outlet></router-outlet>
+<!-- loader -->
+<ng-container *ngIf="!dataLoaded">
+  <p>loading ...</p>
+</ng-container>
+
+<ng-container *ngIf="dataLoaded">
+  <pf-nav-bar [routes]="routes"></pf-nav-bar>
+
+  <router-outlet></router-outlet>
+</ng-container>

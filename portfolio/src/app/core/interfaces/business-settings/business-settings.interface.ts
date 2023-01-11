@@ -1,4 +1,4 @@
-import { IFeatureFlag } from "src/app/core/models";
+import { IFeatureFlag } from "src/app/core/interfaces";
 
 export interface IBusinessSettings {
   featureFlags: IFeatureFlag[];

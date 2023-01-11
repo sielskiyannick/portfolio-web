@@ -1,3 +1,4 @@
+import { IHaveLoader } from 'src/app/core/interfaces/i-have-loader.interface';
 import { RouteDef } from 'src/app/core/models/route-def.model';
 import { Routes } from 'src/app/core/enums';
 import { businessSettingsActions, businessSettingsSelectors, IBusinessSettingsState } from 'src/app/core/state';
@@ -14,14 +15,14 @@ import { catchError, EMPTY, tap } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, IHaveLoader {
 
-  public routes: RouteDef[] = [
+  routes: RouteDef[] = [
     new RouteDef(Routes.about,'about'),
     new RouteDef(Routes.work,'work')
   ];
-
-  public errorOccurred: boolean = false;
+  errorOccurred: boolean = false;
+  dataLoaded: boolean = false;
 
   constructor(
     private readonly businessSettingsStore: Store<IBusinessSettingsState>,
@@ -43,7 +44,13 @@ export class AppComponent implements OnInit {
       next: (businessSettingsState: IBusinessSettingsState) => {
         if (businessSettingsState.error) {
           this.errorOccurred = true;
+          console.log(businessSettingsState.error);
           // TODO ==> log error
+        }
+
+        if (businessSettingsState.businessSettingsLoaded || businessSettingsState.error) {
+          console.log(businessSettingsState);
+          this.dataLoaded = true;
         }
       }
     });

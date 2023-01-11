@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
-import { IBusinessSettings } from 'src/app/core/models';
+import { IBusinessSettings } from 'src/app/core/interfaces';
 
 export const getBusinessSettings = createAction(
   '[BusinessSettings] Get business settings'
