@@ -14,11 +14,15 @@ export class NavBarComponent implements OnInit {
   @Input() routes: RouteDef[] = [];
 
   routePaths = Routes;
-  homeRouteDef: RouteDef;
+
+  initFinished: boolean = false;
 
   constructor() {  }
 
   ngOnInit(): void {
-    this.homeRouteDef = new RouteDef(Routes.home, "HOME", faHouseLaptop)
+    const homeRouteDef = new RouteDef(Routes.home, "HOME", faHouseLaptop)
+    this.routes.unshift(homeRouteDef);
+
+    this.initFinished = true;
   }
 }
