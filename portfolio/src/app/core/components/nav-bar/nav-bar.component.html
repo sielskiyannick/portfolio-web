@@ -1,9 +1,15 @@
 <div>
-  <a [routerLink]=routePaths.home routerLinkActive="active">Yannick Sielski</a>
+  <a [routerLink]="homeRouteDef.routePath" routerLinkActive="active">
+    <p>{{ homeRouteDef.routeLabel }}</p>
+    <fa-icon class="icon" [icon]=homeRouteDef.icon></fa-icon>
+  </a>
 </div>
 
 <ng-container *ngFor="let route of routes">
   <div>
-    <a [routerLink]="route.routePath" routerLinkActive="active">_ {{ route.routeLabel }}</a>
+    <a [routerLink]="route.routePath" routerLinkActive="active">
+      <p>{{ route.routeLabel }}</p>
+      <fa-icon class="icon" [icon]="route.icon"></fa-icon>
+    </a>
   </div>
 </ng-container>

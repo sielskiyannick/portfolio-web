@@ -4,10 +4,11 @@ import { Routes } from 'src/app/core/enums';
 import { businessSettingsActions, businessSettingsSelectors, IBusinessSettingsState } from 'src/app/core/state';
 
 import { Component, OnInit } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { Store } from '@ngrx/store';
+
+import { faPersonDigging, faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +18,8 @@ import { Store } from '@ngrx/store';
 export class AppComponent implements OnInit, IHaveLoader {
 
   routes: RouteDef[] = [
-    new RouteDef(Routes.about,'about'),
-    new RouteDef(Routes.work,'work')
+    new RouteDef(Routes.about,'ABOUT', faUserAstronaut),
+    new RouteDef(Routes.work,'WORK', faPersonDigging)
   ];
   dataLoaded: boolean = false;
 

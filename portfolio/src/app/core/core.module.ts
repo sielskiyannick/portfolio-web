@@ -1,3 +1,4 @@
+import { SharedModule } from 'src/app//shared/shared.module';
 import { GenericErrorComponent } from 'src/app/core/components/generic-error/generic-error.component';
 import { NavBarComponent } from 'src/app/core/components/nav-bar/nav-bar.component';
 import { BusinessSettingsService } from 'src/app/core/services/business-settings.service';
@@ -17,6 +18,7 @@ import { EffectsModule } from '@ngrx/effects';
     BrowserModule,
     HttpClientModule,
     RouterModule,
+    SharedModule,
     StoreModule.forRoot(coreReducers),
     EffectsModule.forRoot([BusinessSettingsEffects])
   ],
