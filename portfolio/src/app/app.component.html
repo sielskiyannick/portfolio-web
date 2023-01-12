@@ -1,13 +1,14 @@
+<div class="base--main-background">
+  <div *ngIf="!dataLoaded; then stillLoadingBlock else dataLoadedBlock"></div>
 
-<div *ngIf="!dataLoaded; then stillLoadingBlock else dataLoadedBlock"></div>
+  <!-- Loader -->
+  <ng-template #stillLoadingBlock>
+    <p>loading ...</p>
+  </ng-template>
 
-<!-- Loader -->
-<ng-template #stillLoadingBlock>
-  <p>loading ...</p>
-</ng-template>
-
-<!-- Data loaded -->
-<ng-template #dataLoadedBlock>
-  <pf-nav-bar [routes]="routes"></pf-nav-bar>
-  <router-outlet></router-outlet>
-</ng-template>
+  <!-- Data loaded -->
+  <ng-template #dataLoadedBlock>
+    <pf-nav-bar [routes]="routes"></pf-nav-bar>
+    <router-outlet></router-outlet>
+  </ng-template>
+</div>

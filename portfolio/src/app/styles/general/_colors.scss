@@ -1,0 +1,21 @@
+@import '../config/config';
+
+.base--main-background {
+  background-color: $base--main-background;
+}
+
+.base--secondary-background {
+  background-color: $base--secondary-background;
+}
+
+.base--dark-highlight {
+  background-color: $base--dark-highlight;
+}
+
+.base--middle-highlight {
+  background-color: $base--middle-highlight;
+}
+
+.base--light-highlight {
+  background-color: $base--light-highlight;
+}
