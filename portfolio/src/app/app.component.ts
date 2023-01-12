@@ -41,7 +41,6 @@ export class AppComponent implements OnInit, IHaveLoader {
         }
 
         if (businessSettingsState.businessSettingsLoaded || businessSettingsState.error) {
-          console.log(businessSettingsState);
           this.dataLoaded = true;
         }
       },
