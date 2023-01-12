@@ -1,4 +1,4 @@
-import { IntroPresentationComponent, IntroContainerComponent } from 'src/app/home/components/intro-container';
+import { IntroPresentationComponent, IntroContainerComponent } from 'src/app/home/components/intro';
 import { HomeRoutingModule } from 'src/app/home/home-routing.module';
 import { HomeWrapperComponent } from 'src/app/home/components/home-wrapper/home-wrapper.component';
 import { SharedModule } from 'src/app//shared/shared.module';
