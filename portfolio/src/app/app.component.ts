@@ -5,10 +5,9 @@ import { businessSettingsActions, businessSettingsSelectors, IBusinessSettingsSt
 
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 import { Store } from '@ngrx/store';
-
-import { catchError, EMPTY, tap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -21,11 +20,11 @@ export class AppComponent implements OnInit, IHaveLoader {
     new RouteDef(Routes.about,'about'),
     new RouteDef(Routes.work,'work')
   ];
-  errorOccurred: boolean = false;
   dataLoaded: boolean = false;
 
   constructor(
     private readonly businessSettingsStore: Store<IBusinessSettingsState>,
+    private readonly router: Router
   ) {}
 
   ngOnInit(): void {
@@ -33,26 +32,28 @@ export class AppComponent implements OnInit, IHaveLoader {
     this.businessSettingsStore.dispatch(businessSettingsActions.setBusinessSettings({ businessSettings: null }));
 
     this.businessSettingsStore.select(businessSettingsSelectors.getBusinessSettings)
-    .pipe(
-      catchError((error: HttpErrorResponse) => {
-        this.errorOccurred = true;
-        // TODO ==> log error
-        return EMPTY;
-      })
-    )
     .subscribe({
       next: (businessSettingsState: IBusinessSettingsState) => {
         if (businessSettingsState.error) {
-          this.errorOccurred = true;
           console.log(businessSettingsState.error);
           // TODO ==> log error
+          this.navigateToErrorPage();
         }
 
         if (businessSettingsState.businessSettingsLoaded || businessSettingsState.error) {
           console.log(businessSettingsState);
           this.dataLoaded = true;
         }
+      },
+      error: (error: Error) => {
+        console.log(error);
+          // TODO ==> log error
+          this.navigateToErrorPage();
       }
     });
+  }
+
+  private navigateToErrorPage(): void {
+    this.router.navigate([Routes.error.toString()]);
   }
 }

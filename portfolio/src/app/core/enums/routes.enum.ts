@@ -3,5 +3,6 @@ export enum Routes {
   home = 'home',
   about = 'about',
   work = 'work',
+  error = 'error',
   empty = '',
 }

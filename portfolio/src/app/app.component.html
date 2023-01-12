@@ -1,15 +1,13 @@
-<!-- Error handler -->
-<ng-container *ngIf="errorOccurred">
-  <p>Error!</p>
-</ng-container>
 
-<!-- loader -->
-<ng-container *ngIf="!dataLoaded">
+<div *ngIf="!dataLoaded; then stillLoadingBlock else dataLoadedBlock"></div>
+
+<!-- Loader -->
+<ng-template #stillLoadingBlock>
   <p>loading ...</p>
-</ng-container>
+</ng-template>
 
-<ng-container *ngIf="dataLoaded">
+<!-- Data loaded -->
+<ng-template #dataLoadedBlock>
   <pf-nav-bar [routes]="routes"></pf-nav-bar>
-
   <router-outlet></router-outlet>
-</ng-container>
+</ng-template>
