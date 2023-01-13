@@ -1,17 +1,15 @@
 <ng-container *ngIf="initFinished">
-  <ng-container *ngFor="let route of routes; let i = index">
+  <div class="display-flex align-items--baseline">
+    <ng-container *ngFor="let route of routes; let i = index">
 
-    <ng-container *ngIf="i !== 0">
-      <p>|</p>
-    </ng-container>
-    <div>
-      <a [routerLink]="route.routePath" routerLinkActive="active">
-        <div>
-          <fa-icon class="icon" [icon]="route.icon"></fa-icon>
-          <p>{{ route.routeLabel }}</p>
-        </div>
+      <ng-container *ngIf="i !== 0">
+        <p class="ml-2 mr-2">|</p>
+      </ng-container>
+      <a class="display-flex align-items--baseline" [routerLink]="route.routePath" routerLinkActive="active">
+        <fa-icon class="icon mr-2" [icon]="route.icon"></fa-icon>
+        <p>{{ route.routeLabel }}</p>
       </a>
-    </div>
 
-  </ng-container>
+    </ng-container>
+  </div>
 </ng-container>

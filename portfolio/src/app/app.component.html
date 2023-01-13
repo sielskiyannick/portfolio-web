@@ -8,7 +8,9 @@
 
   <!-- Data loaded -->
   <ng-template #dataLoadedBlock>
-    <pf-nav-bar [routes]="routes"></pf-nav-bar>
+    <div class="layout--wide">
+      <pf-nav-bar [routes]="routes"></pf-nav-bar>
+    </div>
     <router-outlet></router-outlet>
   </ng-template>
 </div>

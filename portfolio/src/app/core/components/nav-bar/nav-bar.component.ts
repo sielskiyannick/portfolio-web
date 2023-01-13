@@ -8,7 +8,7 @@ import { Routes } from 'src/app/core/enums';
 @Component({
   selector: 'pf-nav-bar',
   templateUrl: 'nav-bar.component.html',
-  styleUrls: []
+  styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
   @Input() routes: RouteDef[] = [];
